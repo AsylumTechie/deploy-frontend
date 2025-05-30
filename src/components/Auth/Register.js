@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { register } from '../../services/authService';
+import { useNavigate } from 'react-router-dom';
 
 const styles = {
     container: {
@@ -68,6 +69,8 @@ const Register = () => {
   const [focusedInput, setFocusedInput] = useState(null);
   const [error, setError] = useState('');
 
+  const navigate= useNavigate()
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -85,6 +88,7 @@ const Register = () => {
     try {
       await register(formData);
       alert('Registration successful. Please log in.');
+      navigate('/'); 
     } catch (err) {
       setError('Registration failed. Please try again.');
     }

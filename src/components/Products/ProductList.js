@@ -103,7 +103,7 @@ const ProductList = () => {
           <button type="button" onClick={cancelEditing} style={styles.cancelBtn}>Cancel</button>
         </form>
       ) : products.length === 0 ? (
-        <p style={styles.noData}>No products available.</p>
+        <p style={styles.noData}>Loading your products...</p>
       ) : (
         <div style={styles.grid}>
           {products.map((product) => (
